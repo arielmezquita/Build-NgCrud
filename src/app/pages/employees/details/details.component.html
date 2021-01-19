@@ -5,20 +5,21 @@
     <div class="card-body">
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
-                Name: <h5>Manuel Perez</h5>
+                Name: <h5>{{ employee.name }} {{ employee.lastName }}</h5>
             </li>
             <li class="list-group-item">
-                Email: <h5>mperez@email.com</h5>
+                Email: <h5>{{ employee.email }}</h5>
             </li>
             <li class="list-group-item">
-                Start Date: <h5>01/17/2021</h5>
+                Start Date: <h5>{{ employee.startDate }}</h5>
             </li>
         </ul>
     </div>
     <div class="btn-group" role="group">
-        <button type="button" class="btn btn-outline-warning m-1 btn-sm">Edit</button>
-        <button type="button" class="btn btn-outline-danger m-1 btn-sm">Delete</button>
+        <button type="button" class="btn btn-outline-warning m-1 btn-sm" (click)="onGoToEdit()">Edit</button>
+        <button type="button" class="btn btn-outline-danger m-1 btn-sm" (click)="onDelete()">Delete</button>
     </div>
 </div>
-<button type="button" class="btn btn-secondary mt-2">Go Back to List</button>
-{{ value | json }}
+<button type="button" class="btn btn-secondary mt-2" (click)="onGoBackToList()">Go Back to List</button>
+
+{{ employee | json }}

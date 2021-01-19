@@ -14,6 +14,33 @@ export class ListComponent implements OnInit {
     }
   };
 
+  fakeData = [
+    {
+      name: 'Manuel',
+      lastName: 'Baez',
+      email: 'mbaez@mail.com',
+      startDate: '01/01/1900' 
+    },
+    {
+      name: 'Pedro',
+      lastName: 'Reyes',
+      email: 'preyes@mail.com',
+      startDate: '01/01/1900' 
+    },
+    {
+      name: 'Juan',
+      lastName: 'Rios',
+      email: 'jrios@mail.com',
+      startDate: '01/01/1900' 
+    },
+    {
+      name: 'Alex',
+      lastName: 'Ruiz',
+      email: 'aruiz@mail.com',
+      startDate: '01/01/1900' 
+    }
+  ];
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {

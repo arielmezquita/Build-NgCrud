@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { HeaderModule } from './shared/components/header/header.module';
+import { EmployeeFormComponent } from './shared/components/employee-form/employee-form.component';
+import { EmployeeFormModule } from './shared/components/employee-form/employee-form.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,8 @@ import { HeaderModule } from './shared/components/header/header.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HeaderModule
+    HeaderModule,
+    EmployeeFormModule
   ],
   providers: [],
   bootstrap: [AppComponent]
