@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "ngbuildcrud": {
+      "hosting": {
+        "crud2021": [
+          "ngbuildcrud"
+        ]
+      }
+    }
+  }
+}
