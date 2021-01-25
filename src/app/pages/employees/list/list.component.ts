@@ -16,7 +16,7 @@ export class ListComponent implements OnInit {
     }
   };
 
- 
+
   constructor(private router: Router, private employeesSvc: EmployeesService) { }
 
   ngOnInit(): void {
@@ -26,7 +26,7 @@ export class ListComponent implements OnInit {
     this.navigationExtras.state.value= item;
     this.router.navigate(['edit'], this.navigationExtras);
   }
-  
+
   onGoToSee(item: any): void{
     this.navigationExtras.state.value= item;
     this.router.navigate(['details'], this.navigationExtras);
@@ -35,7 +35,7 @@ export class ListComponent implements OnInit {
   async onGoToDelete(empId: string): Promise<void> {
     try {
       await this.employeesSvc.onDeleteEmployees(empId);
-      alert('Deleted');
+
     } catch (err) {
       console.log(err)
     }

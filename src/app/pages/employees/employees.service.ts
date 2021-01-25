@@ -3,6 +3,7 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 import { Observable } from 'rxjs';
 import { Employee } from 'src/app/shared/models/employee.interface';
 import { map } from 'rxjs/operators';
+import  Swal  from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class EmployeesService {
 
   private employeesColletion: AngularFirestoreCollection<Employee>;
 
-  constructor(private readonly afs: AngularFirestore) { 
+  constructor(private readonly afs: AngularFirestore) {
     this.employeesColletion = afs.collection<Employee>('employees');
     this.getEmployees();
   }
@@ -21,14 +22,34 @@ export class EmployeesService {
   onDeleteEmployees(empId: string): Promise<void>{
     return new Promise (async (resolve, reject) => {
       try {
-        const result = this.employeesColletion.doc(empId).delete();
-        resolve(result);
+        Swal.fire({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+          if (result.isConfirmed) {
+
+            //Delete Employee
+            const result = this.employeesColletion.doc(empId).delete();
+            resolve(result);
+
+            Swal.fire(
+              'Deleted!',
+              'Your file has been deleted.',
+              'success'
+            )
+          }
+        })
       } catch (err) {
         reject(err.message);
       }
     });
   }
- 
+
   onSaveEmployee(employee: Employee, empId: string): Promise<void>{
     return new Promise( async (resolve, reject) => {
       try {
@@ -41,7 +62,7 @@ export class EmployeesService {
       }
     });
   }
- 
+
   private getEmployees(): void{
     this.employees = this.employeesColletion.snapshotChanges().pipe(
       map(actions => actions.map(a => a.payload.doc.data() as Employee))

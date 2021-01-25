@@ -23,11 +23,12 @@
     "@popperjs/core": "^2.6.0",
     "bootstrap": "^4.5.3",
     "bootswatch": "^4.5.3",
+    "firebase": "^7.0 || ^8.0",
     "jquery": "^3.5.1",
     "rxjs": "~6.6.0",
+    "sweetalert2": "^10.13.1",
     "tslib": "^2.0.0",
-    "zone.js": "~0.10.2",
-    "firebase": "^7.0 || ^8.0"
+    "zone.js": "~0.10.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1100.5",

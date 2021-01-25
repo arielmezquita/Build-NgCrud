@@ -38,7 +38,6 @@ export class DetailsComponent implements OnInit {
   async onGoToDelete(): Promise<void> {
     try {
       await this.employeesSvc.onDeleteEmployees(this.employee?.id);
-      alert('Deleted');
       this.onGoBackToList();
     } catch (err) {
       console.log(err)
